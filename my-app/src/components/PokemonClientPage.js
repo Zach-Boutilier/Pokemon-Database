@@ -14,6 +14,7 @@ const generationRanges = {
   7: [722, 809],
   8: [810, 898],
   9: [899, 1010],
+  10: [1026, 1302],
 };
 
 export default function PokemonClientPage() {

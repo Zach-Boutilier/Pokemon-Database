@@ -16,15 +16,10 @@ export default function HomePage() {
           href="/types"
           className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-green-400 hover:text-black"
         >
-          View by Type
-        </Link>
-        <Link
-          href="/search"
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-green-400 hover:text-black"
-        >
-          Search Pokémon
+          View Types
         </Link>
       </nav>
+
     </main>
   );
 }

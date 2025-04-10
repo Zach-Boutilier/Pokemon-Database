@@ -35,7 +35,7 @@ export default function PokemonTypesPage() {
             <div className="flex justify-center mb-2">
               <img src={type.imageUrl} alt={`${type.name}`} />
             </div>
-            <p className="text-lg mt-2">Click to see Pokémon of this type</p>
+            <p className="text-lg mt-2">Click to see this type.</p>
           </div>
         ))}
       </div>
