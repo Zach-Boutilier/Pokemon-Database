@@ -1,4 +1,5 @@
 `use server`;
+export const formKeywords = ['mega', 'gmax', 'alola', 'rotom', 'deoxys', '', '', ''];
 
 export const generationRanges = {
   1: [1, 151],
@@ -10,13 +11,14 @@ export const generationRanges = {
   7: [722, 809],
   8: [810, 905],
   9: [906, 1025],
-  10: [10001, 10277],
-  //10: [10001, 10032],
-  //11: [10033, 10079],
-  //12: [10080, 10085],
-  //13: [10086, 10090],
-  //14: [10091, 10194],
-  //15: [10195, 10228],
+  // 10: [10001, 10277],
+  // 10: [10001, 10032], //Forms
+  // 11: [10033, 10079], //Megas1
+  // 12: [10080, 10085], //Pikachus
+  // 13: [10086, 10090], //Megas2
+  // 14: [10091, 10194], //Forms
+  // 15: [10195, 10228], //G-Max forms
+  // 16: [10229, 10277], //Forms
 };
 
 export async function fetchPokemonByGeneration(gen = 1) {
@@ -40,8 +42,41 @@ export async function fetchPokemonByGeneration(gen = 1) {
       height: ((item.height / 10) * 3.281).toFixed(1), // in feet
       weight: ((item.weight / 10) * 2.205).toFixed(1), // in pounds
     }));
+    
   } catch (error) {
     console.error("Error fetching data: ", error);
+    return [];
+  }
+}
+
+export const extraFormKeywords = ['mega', 'gmax'];
+
+export async function fetchMegaAndGmaxForms() {
+  try {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?offset=1025&limit=300');
+    const data = await res.json();
+
+    const filtered = data.results.filter((p) =>
+      extraFormKeywords.some((keyword) => p.name.includes(keyword))
+    );
+
+    const formDetails = await Promise.all(
+      filtered.map((p) =>
+        fetch(`https://pokeapi.co/api/v2/pokemon/${p.name}`).then((res) => res.json())
+      ),
+      console.log(formDetails)
+    );
+
+    return formDetails.map((item) => ({
+      id: item.id,
+      name: item.name,
+      sprite: item.sprites.front_default,
+      height: ((item.height / 10) * 3.281).toFixed(1),
+      weight: ((item.weight / 10) * 2.205).toFixed(1),
+    }));
+
+  } catch (error) {
+    console.error('Error fetching forms:', error);
     return [];
   }
 }

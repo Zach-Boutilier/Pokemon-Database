@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { fetchPokemonByGeneration } from '@/components/Pokemon';
+import { fetchPokemonByGeneration, fetchMegaAndGmaxForms } from '@/components/Pokemon';
 
 const generationRanges = {
   1: [1, 151],

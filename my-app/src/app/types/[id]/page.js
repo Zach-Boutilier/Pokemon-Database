@@ -55,7 +55,7 @@ if (name === "stellar") {
 }
 
   return (
-    <div className="">
+    <div className="bg-gray-300">
         <div className='bg-gray-200 p-2'>
             <h1 className="text-4xl font-bold text-center mb-6 capitalize">{name}</h1>
 
