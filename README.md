@@ -9,23 +9,19 @@ This is a Next.js app that displays a full list of Pokémon with generation filt
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/pokemon-app.git
-cd pokemon-app
+
+git clone https://github.com/Zach-Boutilier/Pokemon-Database
+cd my-app
+===============================================================
 2. Install Dependencies
 Make sure you have Node.js installed (v18+ is recommended).
 
-bash
-Copy
-Edit
-npm install
+npm -i
+===============================================================
 3. Start the Development Server
-bash
-Copy
-Edit
+
 npm run dev
+===============================================================
 Then open your browser and go to:
 
-bash
-Copy
-Edit
 http://localhost:3000/pokemon
