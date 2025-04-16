@@ -11,14 +11,7 @@ export const generationRanges = {
   7: [722, 809],
   8: [810, 905],
   9: [906, 1025],
-  // 10: [10001, 10277],
-  // 10: [10001, 10032], //Forms
-  // 11: [10033, 10079], //Megas1
-  // 12: [10080, 10085], //Pikachus
-  // 13: [10086, 10090], //Megas2
-  // 14: [10091, 10194], //Forms
-  // 15: [10195, 10228], //G-Max forms
-  // 16: [10229, 10277], //Forms
+  10: [10001, 10277],
 };
 
 export async function fetchPokemonByGeneration(gen = 1) {
